@@ -1,0 +1,200 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="100%" height="360" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0f19" />
+      <stop offset="50%" stop-color="#111827" />
+      <stop offset="100%" stop-color="#070a12" />
+    </linearGradient>
+
+    <!-- Glowing Accent Gradients -->
+    <linearGradient id="primary-glow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#6366f1" />
+      <stop offset="100%" stop-color="#a855f7" />
+    </linearGradient>
+
+    <linearGradient id="emerald-glow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#06b6d4" />
+    </linearGradient>
+
+    <linearGradient id="card-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.75" />
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.85" />
+    </linearGradient>
+
+    <!-- Filters for Glow and Shadow -->
+    <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+
+    <filter id="glow-light" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.75" stroke-opacity="0.5" />
+      <circle cx="40" cy="0" r="1.5" fill="#38bdf8" fill-opacity="0.25" />
+    </pattern>
+  </defs>
+
+  <style>
+    /* CSS Animations for dynamic elements */
+    @keyframes pulseOrb {
+      0%, 100% { transform: scale(1) translate(0, 0); opacity: 0.35; }
+      50% { transform: scale(1.18) translate(-15px, 10px); opacity: 0.6; }
+    }
+    @keyframes floatCard1 {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+    @keyframes floatCard2 {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+    @keyframes flowLine {
+      0% { stroke-dashoffset: 120; }
+      100% { stroke-dashoffset: 0; }
+    }
+    @keyframes rotateRing {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .pulse-glow-1 {
+      animation: pulseOrb 8s ease-in-out infinite alternate;
+      transform-origin: 200px 100px;
+    }
+    .pulse-glow-2 {
+      animation: pulseOrb 10s ease-in-out infinite alternate-reverse;
+      transform-origin: 1000px 250px;
+    }
+    .floating-card-1 {
+      animation: floatCard1 6s ease-in-out infinite;
+    }
+    .floating-card-2 {
+      animation: floatCard2 7s ease-in-out infinite;
+    }
+    .streaming-path {
+      stroke-dasharray: 8 12;
+      animation: flowLine 3s linear infinite;
+    }
+    .rotating-globe {
+      animation: rotateRing 30s linear infinite;
+      transform-origin: 1060px 180px;
+    }
+
+    .title-text {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+    .subtitle-text {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+    }
+    .badge-text {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 600;
+      font-size: 11px;
+      letter-spacing: 0.05em;
+    }
+  </style>
+
+  <!-- Background Layer -->
+  <rect width="1200" height="360" rx="16" fill="url(#bg-grad)" />
+  <rect width="1200" height="360" rx="16" fill="url(#grid)" />
+
+  <!-- Animated Ambient Orbs in Background -->
+  <circle class="pulse-glow-1" cx="240" cy="80" r="140" fill="#38bdf8" filter="url(#glow-light)" opacity="0.25" />
+  <circle class="pulse-glow-2" cx="980" cy="240" r="160" fill="#a855f7" filter="url(#glow-light)" opacity="0.2" />
+  <circle cx="600" cy="30" r="90" fill="#10b981" filter="url(#glow-light)" opacity="0.12" />
+
+  <!-- Dynamic Network Stream Lines in Background -->
+  <g opacity="0.35">
+    <path class="streaming-path" d="M 100 290 Q 300 240 500 280 T 900 250 T 1150 200" fill="none" stroke="#38bdf8" stroke-width="2" />
+    <path class="streaming-path" d="M 80 120 Q 350 70 700 130 T 1100 80" fill="none" stroke="#6366f1" stroke-width="1.5" />
+  </g>
+
+  <!-- Rotating Globe Outline on Right Background -->
+  <g class="rotating-globe" opacity="0.18">
+    <circle cx="1060" cy="180" r="95" fill="none" stroke="#38bdf8" stroke-width="2" />
+    <ellipse cx="1060" cy="180" rx="95" ry="38" fill="none" stroke="#38bdf8" stroke-width="1.5" />
+    <ellipse cx="1060" cy="180" rx="38" ry="95" fill="none" stroke="#38bdf8" stroke-width="1.5" />
+    <line x1="965" y1="180" x2="1155" y2="180" stroke="#38bdf8" stroke-width="1.5" />
+    <line x1="1060" y1="85" x2="1060" y2="275" stroke="#38bdf8" stroke-width="1.5" />
+  </g>
+
+  <!-- Dynamic Floating Decorative Cards / Pills (Positioned in Non-Obstructive Margin) -->
+  <g class="floating-card-1" filter="url(#shadow)">
+    <!-- Pill 1: EOR & Compliance -->
+    <rect x="850" y="70" width="220" height="42" rx="21" fill="url(#card-grad)" stroke="#38bdf8" stroke-width="1.2" stroke-opacity="0.6"/>
+    <circle cx="872" cy="91" r="8" fill="#10b981" />
+    <text x="890" y="95" fill="#f8fafc" class="badge-text">160+ COUNTRIES • TAX READY</text>
+  </g>
+
+  <g class="floating-card-2" filter="url(#shadow)">
+    <!-- Pill 2: Multi-Currency Rails -->
+    <rect x="880" y="240" width="230" height="42" rx="21" fill="url(#card-grad)" stroke="#a855f7" stroke-width="1.2" stroke-opacity="0.6"/>
+    <circle cx="902" cy="261" r="8" fill="#6366f1" />
+    <text x="920" y="265" fill="#f8fafc" class="badge-text">GLOBAL PAYMENTS &amp; EOR</text>
+  </g>
+
+  <!-- ================= FOREGROUND HERO CONTENT ================= -->
+  <!-- Category Badge -->
+  <g transform="translate(80, 52)">
+    <rect x="0" y="0" width="250" height="28" rx="14" fill="#1e293b" fill-opacity="0.9" stroke="url(#primary-glow)" stroke-width="1.2" />
+    <circle cx="14" cy="14" r="5" fill="#38bdf8" />
+    <text x="28" y="18" fill="#94a3b8" class="badge-text" font-weight="700">CURATED PAYTECH ECOSYSTEM</text>
+  </g>
+
+  <!-- Main Title -->
+  <text x="80" y="132" fill="#ffffff" class="title-text" font-size="46">
+    Awesome <tspan fill="url(#primary-glow)">Global Payroll</tspan>
+  </text>
+
+  <!-- Subtitle -->
+  <text x="80" y="176" fill="#94a3b8" class="subtitle-text" font-size="18">
+    Multi-Country Payroll Engines • Employer of Record (EOR) • Tax Compliance
+  </text>
+
+  <!-- Feature Pills Row in Foreground -->
+  <g transform="translate(80, 212)">
+    <!-- Pill 1: SaaS Comparison -->
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="165" height="34" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1" />
+      <text x="14" y="22" fill="#38bdf8" font-size="14">🌐</text>
+      <text x="36" y="21" fill="#e2e8f0" class="badge-text">SaaS Benchmark</text>
+    </g>
+
+    <!-- Pill 2: Open-Source Engines -->
+    <g transform="translate(177, 0)">
+      <rect x="0" y="0" width="175" height="34" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1" />
+      <text x="14" y="22" fill="#10b981" font-size="14">⚡</text>
+      <text x="36" y="21" fill="#e2e8f0" class="badge-text">Open-Source Engines</text>
+    </g>
+
+    <!-- Pill 3: Transparent Pricing -->
+    <g transform="translate(364, 0)">
+      <rect x="0" y="0" width="170" height="34" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1" />
+      <text x="14" y="22" fill="#a855f7" font-size="14">💳</text>
+      <text x="36" y="21" fill="#e2e8f0" class="badge-text">Verified Pricing</text>
+    </g>
+
+    <!-- Pill 4: Statutory Compliance -->
+    <g transform="translate(546, 0)">
+      <rect x="0" y="0" width="175" height="34" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1" />
+      <text x="14" y="22" fill="#f59e0b" font-size="14">⚖️</text>
+      <text x="36" y="21" fill="#e2e8f0" class="badge-text">Statutory Filing</text>
+    </g>
+  </g>
+
+  <!-- Bottom Accent Gradient Line -->
+  <rect x="80" y="286" width="1040" height="3" rx="1.5" fill="url(#primary-glow)" opacity="0.8" />
+  <text x="80" y="318" fill="#64748b" class="subtitle-text" font-size="13">
+    Tracking global workforce payment rails, gross-to-net tax calculations, and international employment platforms.
+  </text>
+</svg>
