@@ -116,7 +116,7 @@ If you found this curated list helpful for your business, research, or engineeri
 Contributions, corrections, and additions are welcome! Please follow these guidelines: 🤝
 
 1. Fork the repository and create your branch (`git checkout -b feature/add-payroll-tool`).
-2. Add the tool to the appropriate table (SaaS or Open-Source) maintaining descending sort order (Company Scale for SaaS, Star Count for Open-Source).
+2. Add the tool to the appropriate table (SaaS or Open-Source) maintaining descending sort order (Company Scale for SaaS, Stars_Count for Open-Source).
 3. Ensure pricing, valuation, and free tier data are verified with primary source documentation.
 4. Submit a Pull Request with a brief description of the changes.
 
